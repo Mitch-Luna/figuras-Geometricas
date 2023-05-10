@@ -39,9 +39,19 @@ const myModule = (() => {
       let valueLadoUno = Number(document.getElementById("ladoTriangulo1Id").value);
       let valueLadoDos = Number(document.getElementById("ladoTriangulo2Id").value);
       let valueLadoTres = Number(document.getElementById("ladoTriangulo3Id").value);
-  
-      const resultado = `El perimetro del triangulo es: ${perimetroTriangulo(valueLadoUno, valueLadoDos, valueLadoTres)} cm`;
+
+    if(valueLadoUno === valueLadoDos && valueLadoUno===valueLadoTres){
+      const resultado = `El perimetro del triangulo es: ${perimetroTriangulo(valueLadoUno, valueLadoDos, valueLadoTres)} cm, Es un triangulo equilatero`;
       mensaje.innerText = resultado;
+      
+    }else if(valueLadoUno === valueLadoDos || valueLadoUno === valueLadoTres || valueLadoDos === valueLadoTres){
+      const resultado = `El perimetro del triangulo es: ${perimetroTriangulo(valueLadoUno, valueLadoDos, valueLadoTres)} cm, Es un triangulo isosceles`;
+      mensaje.innerText = resultado;
+
+    }else{
+      const resultado = `El perimetro del triangulo es: ${perimetroTriangulo(valueLadoUno, valueLadoDos, valueLadoTres)} cm, Es un triangulo escaleno`;
+      mensaje.innerText = resultado;
+    }
     });
   
     btnAreaTriangulo.addEventListener("click", () => {
